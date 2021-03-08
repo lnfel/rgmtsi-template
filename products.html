@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<title>Welcome to the Philippines leading kitchen supplier | RGMTSI</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<!-- CSS -->
+	<link href="css/tailwind.min.css" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet">
+	<!-- FONTAWESOME -->
+	<link href="css/fontawesome-free-5.15.1-web/css/all.css" rel="stylesheet">
+	<script defer src="css/fontawesome-free-5.15.1-web/js/all.js"></script>
+	<!-- ICON -->
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
+	<script src="js/alpine.min.js" defer></script>
+</head>
+<body>
+<div class="relative bg-white overflow-hidden">
+  <div class="max-w-7xl mx-auto">
+    <div x-data="main()" class="relative z-10 pb-4 bg-white lg:max-w-2xl lg:w-full">
+      <!-- <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <polygon points="50,0 100,0 50,100 25,100" />
+      </svg> -->
+
+      <div class="relative pt-6 px-4 sm:px-6 lg:px-8">
+        <nav
+        	class="relative flex items-center justify-between sm:h-10 lg:justify-start"
+        	:class="{ '' : !scrollAtTop }"
+        	@scroll.window="scrollAtTop = (window.pageYOffset > 45) ? false : true"
+        	aria-label="Global">
+          <div class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
+            <div class="flex items-center justify-between w-full md:w-auto">
+              <a href="index.html">
+                <span class="sr-only">RGMTSI | RG Manufacturing and Trading Solutions</span>
+                <!-- <img class="h-8 w-auto sm:h-10" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"> -->
+                <img class="h-12 w-auto" src="img/rgmtsi-logo_255.png" alt="RGMTSI Logo">
+              </a>
+              <div class="-mr-2 flex items-center md:hidden">
+                <button
+                	@click="showNavMenu = !showNavMenu"
+                	@keydown.escape="showNavMenu = false"
+                	type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-expanded="false">
+                  <span class="sr-only">Open main menu</span>
+                  <!-- Heroicon name: outline/menu -->
+                  <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
+
+            <a href="#" class="font-medium text-gray-500 hover:text-gray-900">About RGMTSI</a>
+
+            <!-- <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Brands</a> -->
+
+            <div class="relative inline-block text-left">
+          		<div>
+          			<button
+          			@click="showBrandDropdown = !showBrandDropdown"
+          			@keydown.escape="showBrandDropdown = false"
+          			type="button" class="text-gray-500 group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 px-2 cursor-pointer" id="options-menu" aria-haspopup="true" aria-expanded="true">
+          				Brands <i class="fas fa-chevron-down -mr-1 ml-2"></i>
+          			</button>
+          		</div>
+          		<div
+          		x-cloak
+          		x-show="showBrandDropdown" 
+          		@click.away="showBrandDropdown = false"
+          		class="transform absolute left-1/2 -translate-x-1/2 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+						    <div class="py-1">
+						      <a href="food-processing.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Food Processing</a>
+						    </div>
+						    <div class="py-1">
+						    	<a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Packaging</a>
+						    </div>
+						    <div class="py-1">
+						    	<a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Pharmaceuticals</a>
+						    </div>
+						    <div class="py-1">
+						    	<a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Slaughter Lines</a>
+						    </div>
+						  </div>
+          	</div>
+
+            <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Services</a>
+
+            <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">Contact Us</a>
+
+            <!-- <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">Log in</a> -->
+          </div>
+        </nav>
+      </div>
+
+      <!--
+        Mobile menu, show/hide based on menu open state.
+
+        Entering: "duration-150 ease-out"
+          From: "opacity-0 scale-95"
+          To: "opacity-100 scale-100"
+        Leaving: "duration-100 ease-in"
+          From: "opacity-100 scale-100"
+          To: "opacity-0 scale-95"
+      -->
+      <div
+      	x-cloak
+      	x-show.transition="showNavMenu"
+      	@click.away="showNavMenu = false"
+      	class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
+        <div class="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
+          <div class="px-5 pt-4 flex items-center justify-between">
+            <div>
+              <img class="h-12 w-auto" src="img/rgmtsi-logo_255.png" alt="RGMTSI Logo">
+            </div>
+            <div class="-mr-2">
+              <button
+              	@click="showNavMenu = false"
+              	type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                <span class="sr-only">Close main menu</span>
+                <!-- Heroicon name: outline/x -->
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="px-2 pt-2 pb-3 space-y-1">
+            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">About RGMTSI</a>
+
+            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Brands</a>
+
+            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Services</a>
+
+            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Contact Us</a>
+          </div>
+          <!-- <a href="#" class="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100">
+            Log in
+          </a> -->
+        </div>
+      </div>
+
+      <!-- <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+        <div class="sm:text-center lg:text-left">
+          <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+            <span class="block xl:inline">Your automated kitchen</span>
+            <span class="block text-indigo-600 xl:inline">starts with us</span>
+          </h1>
+          <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+            Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.
+          </p>
+          <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+            <div class="rounded-md shadow">
+              <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
+                Get started
+              </a>
+            </div>
+            <div class="mt-3 sm:mt-0 sm:ml-3">
+              <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10">
+                Live demo
+              </a>
+            </div>
+          </div>
+        </div>
+      </main> -->
+    </div>
+  </div>
+  
+</div>
+
+
+
+<footer class="" style="background-color: #37384e;">
+  <div class="max-w-7xl mx-auto p-8 pb-0">
+    <div class="flex items-center">
+      <img class="mr-2" src="img/rgmtsi-logo_255.png" width="80">
+      <h1 class="text-3xl tracking-tight font-bold text-white">RGMTSI</h1>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto p-8">
+    <div class="md:grid md:grid-cols-8 md:gap-6">
+      <div class="md:col-span-3">
+        <h3 class="text-2xl tracking-tight text-indigo-400 my-5">Office and Contact Info</h3>
+        <p class="tracking-tight text-white mb-2"><i class="fas fa-map-marker-alt mr-2"></i> L1 Valleyfair Town Center,Km 23, Ortigas Extn., Taytay Rizal</p>
+        <div class="flex">
+          <p class="tracking-tight text-white mb-2 mr-8"><i class="fas fa-mobile-alt mr-2"></i> (+632) 8994-2692</p>
+          <p class="tracking-tight text-white mb-2"><i class="fas fa-fax mr-2"></i> (+632) 8234-5956</p>
+        </div>
+        <div class="flex">
+          <p class="tracking-tight text-white mb-2 mr-4">
+            <i class="far fa-envelope mr-2"></i> <a class="hover:underline" href="mailto:rgmtsi@yahoo.com">rgmtsi@yahoo.com</a>
+          </p>
+          <p class="tracking-tight text-white mb-2">
+            <i class="far fa-envelope mr-2 opacity-0"></i> <a class="hover:underline" href="mailto:rgmtsi.phil@gmail.com">rgmtsi.phil@gmail.com</a>
+          </p>
+        </div>
+      </div>
+      <div class="md:col-span-2">
+        <h3 class="text-2xl tracking-tight text-indigo-400 my-5">License and Legitimacy</h3>
+        <p class="tracking-tight text-white mb-2">RG Manufacturing and Trading Solutions Inc. is registered with the Securities and Exchange Commissions</p>
+        <p class="tracking-tight text-white mb-2">Registration Number: CS200915393</p>
+        <p class="tracking-tight text-white mb-2">Company TIN: 007-417-067-000</p>
+        <p class="tracking-tight text-white mb-2">SSS Number: 0392510169</p>
+      </div>
+      <div class="md:col-span-1">
+        <h3 class="text-2xl tracking-tight text-indigo-400 my-5">Brands</h3>
+        <p class="tracking-tight text-white mb-2"><a class="hover:underline" href="#">Food Processing</a></p>
+        <p class="tracking-tight text-white mb-2"><a class="hover:underline" href="#">Pharmaceuticals</a></p>
+        <p class="tracking-tight text-white mb-2"><a class="hover:underline" href="#">Packaging</a></p>
+        <p class="tracking-tight text-white mb-2"><a class="hover:underline" href="#">Slaughter Lines</a></p>
+      </div>
+      <div class="md:col-span-2">
+        <h3 class="text-2xl tracking-tight text-indigo-400 my-5">Services</h3>
+        <p class="tracking-tight text-white mb-2"><a class="hover:underline" href="#">Clean room and HVAC System</a></p>
+        <p class="tracking-tight text-white mb-2"><a class="hover:underline" href="#">Complete Refrigeration System</a></p>
+        <p class="tracking-tight text-white mb-2"><a class="hover:underline" href="#">Industrial Automation and Integration</a></p>
+        <p class="tracking-tight text-white mb-2"><a class="hover:underline" href="#">Turnkey project management</a></p>
+        <p class="tracking-tight text-white mb-2"><a class="hover:underline" href="#">Complete dairy Process Plant</a></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto p-8">
+    <span class="tracking-tight text-sm text-white">Copyright &copy; 2020 RGMTSI</span>
+  </div>
+</footer>
+
+<script>
+	function main()
+	{
+		return {
+			showNavMenu: false,
+			showBrandDropdown: false,
+			scrollAtTop: true
+		}
+	}
+</script>
+</body>
+</html>

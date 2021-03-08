@@ -1,0 +1,35 @@
+[x-cloak] {
+	display: none !important;
+}
+
+.hero {
+	height: 100%;
+  min-width: 100%;
+  min-height: 56.25vw;
+  width: 177.77777778vh;
+  left: 50%;
+  top: 50%;
+}
+
+.hide-scroll-bar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scroll-bar::-webkit-scrollbar {
+  display: none;
+}
+
+/*.sticky {
+  position: fixed;
+  top: 0;
+}
+
+.sticky + main {
+  padding-top: 64px;
+}*/
+
+@media (min-width: 768px) {
+	.hero {
+		transform: translate(-50%, -50%);
+	}
+}
